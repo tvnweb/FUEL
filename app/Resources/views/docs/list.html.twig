@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% include 'docs/nav.html.twig' with {'page' : 'docs'} %}
+
+<div class="container">
+    <a type="button" class="btn btn-success" href="/docs/nuovo">Nuovo documento</a>
+    <br/><br/>
+    <table class="table">
+      <tr><th>Nome</th><th>Stato</th><th>Ultimo aggiornamento</th><th>&#160;</th><th>&#160;</th></tr>
+      {% for doc in docs %}
+        <tr><td>{{doc.nome}}</td><td> {{doc.stato}} </td><td> {{doc.aggiornato|date}} </td>
+          <td><a href="/docs/dati/{{doc.id}}">Dati</a></td>
+          <td><a href="/docs/pdf/{{doc.id}}">PDF</a></td>
+        </tr>
+      {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

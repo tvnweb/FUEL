@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% include 'docs/nav.html.twig' with {'page' : 'docs'} %}
+
+<div class="container">
+
+    <table class="table table-sm table-hover">
+      <tr><th>Nome</th><th>Valore</th><th></th></tr>
+      {% for dato in dati %}
+        <tr>
+          <td>{{dato.nome}}</td>
+          <td>{{attribute(valori, dato.slug) is defined ? attribute(valori, dato.slug) : '-'}}</td>
+          <td>
+            <a href="/docs/{{doc.id}}/dato/{{dato.slug}}" class="btn btn-success">Modifica</a>
+          </td>
+        </tr>
+      {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

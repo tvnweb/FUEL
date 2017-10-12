@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% include 'docs/nav.html.twig' with {'page' : 'blocks'} %}
+
+<div class="container">
+
+    <table class="table">
+      <tr><th>Nome</th><th>Descrizione</th></tr>
+      {% for blocco in blocchi %}
+        <tr><td><a href="/docs/blocco/{{blocco.id}}">{{blocco.nome}}</a></td><td> {{blocco.descrizione}} </td></tr>
+      {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

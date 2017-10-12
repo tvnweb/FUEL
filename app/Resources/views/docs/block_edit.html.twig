@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% include 'docs/nav.html.twig' with {'page' : 'blocks'} %}
+
+  <div class="container">
+
+    <h2 class="page-header">{{blocco.nome}}</h2>
+    <h4 class="page-header">{{blocco.descrizione}}</h4>
+
+    {{ form_start(form) }}
+    <button type="submit" class="btn btn-success">Salva Blocco</button>
+    <br/><br/>
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+  </div>
+
+{% endblock %}
